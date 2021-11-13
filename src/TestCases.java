@@ -57,19 +57,25 @@ class TestCases {
         return array;
     }
 
-
+    // Bubble sort implementation by Maxwell Gorley
     private static void BubbleSort(int[] data){
-        for(int i=0;i<data.length; i++){
-           for(int j=0;j<data.length-1;j++){
-               if (data[j] > data[j+1]) {
-                   int temp = data[j];
-                   data[j] = data[j+1];
-                   data[j+1]=temp;
-               }
-           }
+        boolean swapped=false;
+        int temp=0;
+        for(int i=0; i<data.length-1; i++){
+            swapped=false;
+            for(int j=data.length-1; j>i; --j){
+                if(data[j]<data[j-1]){
+                    swapped=true;
+                    temp = data[j];
+                    data[j]=data[j-1];
+                    data[j-1]=temp;
+                }
+            }
+            if(!swapped) return;
         }
     }
 
+    // Merge sort implementation by Jeremy Mog
     public static void MergeSort(int [] data){
         MergeSort(data,0, data.length-1);
     }
